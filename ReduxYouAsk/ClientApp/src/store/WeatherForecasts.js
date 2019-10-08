@@ -1,5 +1,6 @@
 // Actions
 import * as weatherForecastsActions from "../actions/weatherforecasts"
+import axios from "axios"
 
 const initialState = { forecasts: [], isLoading: false }
 
@@ -17,13 +18,11 @@ export const actionCreators = {
     })
 
     const url = `api/SampleData/WeatherForecasts?startDateIndex=${startDateIndex}`
-    const response = await fetch(url)
-    const forecasts = await response.json()
-
-    dispatch({
-      type: weatherForecastsActions.receiveWeatherForecasts,
-      startDateIndex, forecasts
-    })
+    const response = await axios.get(url)
+    if (response && response.status === 200) {
+      const forecasts = await response.data
+      dispatch({ type: weatherForecastsActions.receiveWeatherForecasts, startDateIndex, forecasts })
+    }
   }
 }
 
