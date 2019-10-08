@@ -40,7 +40,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <Router history={history}>
         <ReduxToastr
-          timeOut={4000}
+          timeOut={2000}
           newestOnTop={false}
           preventDuplicates
           position="top-right"
