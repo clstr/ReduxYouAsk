@@ -2,17 +2,19 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { actionCreators } from '../store/Counter'
+import { Button, ButtonGroup } from 'reactstrap';
 
-const Counter = props => (
+const Counter = (props) => (
   <div>
     <h1>Counter</h1>
 
     <p>This is a simple example of a React component.</p>
 
     <p>Current count: <strong>{props.count}</strong></p>
-
-    <button className="btn btn-primary mr-3" onClick={props.increment}>Increment</button>
-    <button className="btn btn-primary mr-3" onClick={props.decrement}>Decrement</button>
+    <ButtonGroup size="lg">
+      <Button onClick={props.increment}><span role={"img"} aria-label={"up arrow"}>⬆️</span>Increment</Button>
+      <Button onClick={props.decrement}><span role={"img"} aria-label={"down arrow"}>⬇️</span> Decrement</Button>
+    </ButtonGroup>
   </div>
 );
 
