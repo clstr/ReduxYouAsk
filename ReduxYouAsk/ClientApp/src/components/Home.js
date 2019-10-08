@@ -2,8 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toastr } from 'react-redux-toastr'
 
-const Home = props => (
+const Home = (props) => (
   <div>
+
+    <div className="embed-responsive embed-responsive-16by9">
+      <iframe
+        title="congratulations"
+        className="embed-responsive-item"
+        src={`https://www.youtube.com/embed/Xp8H6j2vAxE?rel=0&autoplay=1&allowfullscreen=1&frameborder=0`}
+      />
+    </div>
+
     <h1>Hello, world!</h1>
     <p>Welcome to your new single-page application, built with:</p>
     <ul>
