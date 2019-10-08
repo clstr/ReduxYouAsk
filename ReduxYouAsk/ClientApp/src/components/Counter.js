@@ -1,7 +1,7 @@
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { actionCreators } from '../store/Counter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { actionCreators } from '../store/Counter'
 
 const Counter = props => (
   <div>
@@ -11,11 +11,12 @@ const Counter = props => (
 
     <p>Current count: <strong>{props.count}</strong></p>
 
-    <button className="btn btn-primary" onClick={props.increment}>Increment</button>
+    <button className="btn btn-primary mr-3" onClick={props.increment}>Increment</button>
+    <button className="btn btn-primary mr-3" onClick={props.decrement}>Decrement</button>
   </div>
 );
 
 export default connect(
   state => state.counter,
   dispatch => bindActionCreators(actionCreators, dispatch)
-)(Counter);
+)(Counter)
