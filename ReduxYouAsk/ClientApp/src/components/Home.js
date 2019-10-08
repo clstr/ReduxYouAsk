@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toastr } from 'react-redux-toastr'
+import { Fade } from "reactstrap"
 
 const Home = (props) => (
-  <div>
+  <Fade>
 
     <div className="embed-responsive embed-responsive-16by9">
       <iframe
@@ -29,7 +30,7 @@ const Home = (props) => (
     <p>The <code>ClientApp</code> subdirectory is a standard React application based on the <code>create-react-app</code> template. If you open a command prompt in that directory, you can run <code>npm</code> commands such as <code>npm test</code> or <code>npm install</code>.</p>
 
     <button className={"btn btn-primary"} onClick={() => toastr.success('The title', 'The message')} type="button">toastr Test</button>
-  </div>
+  </Fade>
 );
 
 export default connect()(Home);
