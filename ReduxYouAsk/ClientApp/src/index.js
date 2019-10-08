@@ -41,9 +41,8 @@ ReactDOM.render(
       <Router history={history}>
         <ReduxToastr
           timeOut={2000}
-          newestOnTop={false}
-          preventDuplicates
-          position="top-right"
+          newestOnTop={true}
+          position={"top-right"}
           transitionIn="fadeIn"
           transitionOut="fadeOut"
           progressBar

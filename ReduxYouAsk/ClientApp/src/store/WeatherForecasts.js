@@ -1,6 +1,7 @@
 // Actions
 import * as weatherForecastsActions from "../actions/weatherforecasts"
 import axios from "axios"
+import {toastr} from 'react-redux-toastr'
 
 const initialState = { forecasts: [], isLoading: false }
 
@@ -18,11 +19,20 @@ export const actionCreators = {
     })
 
     const url = `api/SampleData/WeatherForecasts?startDateIndex=${startDateIndex}`
-    const response = await axios.get(url)
-    if (response && response.status === 200) {
-      const forecasts = await response.data
-      dispatch({ type: weatherForecastsActions.receiveWeatherForecasts, startDateIndex, forecasts })
+    
+    try {
+      const response = await axios.get(url)
+      if (response && response.status === 200) {
+        toastr.success(`Network: ${response.statusText}`)
+        const forecasts = await response.data
+        dispatch({ 
+          type: weatherForecastsActions.receiveWeatherForecasts, startDateIndex, forecasts 
+        })
+      }
+    } catch(err) {
+      toastr.error(`${err.message}`)
     }
+
   }
 }
 

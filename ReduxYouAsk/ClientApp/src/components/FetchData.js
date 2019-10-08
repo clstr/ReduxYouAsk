@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Spinner, Fade } from "reactstrap"
 import { actionCreators } from '../store/WeatherForecasts'
-import { toastr } from 'react-redux-toastr'
 
 function renderForecastsTable(props) {
   return (
@@ -67,10 +66,6 @@ class FetchData extends Component {
     const {
       isLoading
     } = this.props
-
-    if (!isLoading) {
-      toastr.success('Success', 'Received Data')
-    }
 
     return (
       <Fade>
