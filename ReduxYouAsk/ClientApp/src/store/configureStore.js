@@ -1,7 +1,5 @@
 import { applyMiddleware, compose, createStore } from 'redux'
-import { routerMiddleware } from 'connected-react-router'
-import thunk from 'redux-thunk';
-
+import middleware from './middleware'
 import createRootReducer from './reducers'
 
 export default function configureStore(history, preloadedState) {
@@ -14,11 +12,6 @@ export default function configureStore(history, preloadedState) {
     enhancers.push(window.devToolsExtension())
   }
 
-  const middleware = [
-    thunk,
-    routerMiddleware(history)
-  ];
-
   return createStore(
     // root reducer with router state
     createRootReducer(history),
@@ -27,7 +20,7 @@ export default function configureStore(history, preloadedState) {
     preloadedState,
 
     composeEnhancer(
-      applyMiddleware(...middleware),
+      applyMiddleware(...middleware(history)),
       ...enhancers
     )
   )
