@@ -1,5 +1,5 @@
 // Actions
-import * as weatherForecastsActions from "../actions/weatherforecasts"
+import * as weatherForecastsActions from "./actions/weatherforecasts"
 import axios from "axios"
 import {toastr} from 'react-redux-toastr'
 

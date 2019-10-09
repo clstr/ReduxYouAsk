@@ -1,5 +1,5 @@
 // Actions
-import * as counterActions from "../actions/counter"
+import * as counterActions from "./actions/counter"
 
 const initialState = { count: 0 }
 
